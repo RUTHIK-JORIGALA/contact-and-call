@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter , Routes , Route } from 'react-router-dom'
+import Contact from './components/contacts/Contact'
+import Main from './Main'
+import Error from './Error'
+import MissedCalls from './components/MissedCalls'
+import Messages from './components/Messages'
+import Rightdata from './components/rightdata/Rightdata'
+import Calls from './components/Calls'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      
+      <Routes>
+        <Route path='/' element={<Main/>}>
+          <Route path='/' element={<Rightdata/>}/>
+          <Route path='/calls' element={<Calls/>}/>
+          <Route path='/missed' element={<MissedCalls/>}/>
+          <Route path='/messages' element={<Messages/>}/>
+        </Route>
+        <Route path='/dialpad' element={<Contact/>}/>
+        
+        <Route path='*' element={<Error/>}/>
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App

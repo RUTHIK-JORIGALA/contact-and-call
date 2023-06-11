@@ -1,0 +1,9 @@
+.rightbar{
+    flex:10;
+    border: 1px solid gray;
+    overflow-y: scroll;
+    position: relative;
+}
+.right-contacts{
+    margin-top: 43px;
+}
